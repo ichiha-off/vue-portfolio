@@ -13,10 +13,7 @@ const routes = [
   {
     path: '/skills',
     name: 'Skills',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Skills.vue')
+    component: () => import('../views/Skills.vue')
   },
   {
     path: '/works',
@@ -28,6 +25,9 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  },
   routes
 })
 
