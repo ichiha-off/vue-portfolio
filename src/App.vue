@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div v-if="urlCheck">
+    <Top/>
+  </div>
+  <div id="toHome" v-else>
     <header class="header">
       <div class="header-inner">
         <a href="/">
@@ -10,7 +13,7 @@
     <nav class="side-nav header-links">
       <ul>
         <li>
-          <router-link class="header-link" to="/">
+          <router-link class="header-link" to="/home">
             <div class="link-title eng">
               Home
             </div>
@@ -35,13 +38,16 @@
         </li>
       </ul>
     </nav>
-    <!-- <transition name='view-fade' mode='out-in'> -->
+
     <transition
-    name="custom-classes-transition"
-    enter-active-class="animate fadeOutUp"
-    leave-active-class="animate fadeInDown">
+      name="custom-classes-transition"
+      enter-active-class="animate__animated animate__fadeInRight"
+      leave-active-class="animate__animated animate__fadeOut"
+      mode="out-in"
+      >
       <router-view/>
-    </transition >
+    </transition>
+
     <footer class="footer">
       <div class="footer-inner">
         <div class="eng">created by Yuki Kanayama</div>
@@ -52,10 +58,19 @@
 
 <script>
 import 'normalize.css'
+import Top from './views/Top'
 
 export default {
-  
-}
+  name: 'App',
+  components: {
+    Top
+  },
+  computed: {
+    urlCheck() {
+      return location.pathname.match(/^\/$/);
+    }
+  },
+};
 </script>
 
 <style lang="scss">
@@ -112,39 +127,6 @@ body {
   margin: 100px 0;
 }
 
-// ページ偏移アニメーション
-// .view-fade-enter {
-//   transform: translate(-100px, 0);
-//   opacity: 0;
-// }
-// .view-fade-enter-to {
-//   opacity: 1;
-// }
-// .view-fade-enter-active {
-//   transition: all 1s 0s ease;
-// }
-// .view-fade-leave {
-//   transform: translate(0, 0);
-//   opacity: 1;
-// }
-// .view-fade-leave-to {
-//   transform: translate(100px, 0);
-//   opacity: 0;
-// }
-// .view-fade-leave-active {
-//   transition: all .5s 0s ease;
-// }
-
-// side-linkのアニメーション
-@keyframes activeLink {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .YK-logo {
   height: 60px;
 }
@@ -195,7 +177,7 @@ body {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 0;
-    animation: 2s activeLink;
+    animation: 1s fadeIn;
   }
 }
 
