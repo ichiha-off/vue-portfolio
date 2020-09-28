@@ -2,15 +2,15 @@
   <div v-if="urlCheck">
     <Top/>
   </div>
-  <div id="toHome" v-else>
-    <header class="header">
+  <div  v-else>
+    <header class="header animate__animated animate__fadeIn">
       <div class="header-inner">
         <a href="/">
           <img class='YK-logo' src="../img/YK_logo.svg" alt="YK_logo">
         </a>
       </div>
     </header>
-    <nav class="side-nav header-links">
+    <nav class="side-nav header-links animate__animated animate__flipInX">
       <ul>
         <li>
           <router-link class="header-link" to="/home">
@@ -45,7 +45,7 @@
       leave-active-class="animate__animated animate__fadeOut"
       mode="out-in"
       >
-      <router-view/>
+      <router-view class="animate__animated animate__fadeInRight"/>
     </transition>
 
     <footer class="footer">
