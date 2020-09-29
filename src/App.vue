@@ -29,7 +29,7 @@
           </router-link>
         </li>
         <li>
-          <router-link class="header-link" to="/Works">
+          <router-link class="header-link" to="/works">
             <div class="link-title eng">
               Works
             </div>
@@ -41,11 +41,11 @@
 
     <transition
       name="custom-classes-transition"
-      enter-active-class="animate__animated animate__fadeInRight"
-      leave-active-class="animate__animated animate__fadeOut"
+      enter-active-class="animate__animated animate__backInRight"
+      leave-active-class="animate__animated animate__backOutRight"
       mode="out-in"
       >
-      <router-view class="animate__animated animate__fadeInRight"/>
+      <router-view class="animate__animated animate__backInRight"/>
     </transition>
 
     <footer class="footer">
@@ -59,6 +59,7 @@
 <script>
 import 'normalize.css'
 import Top from './views/Top'
+
 
 export default {
   name: 'App',
@@ -164,6 +165,14 @@ body {
     color: #fff;
     position: relative;
     display: block;
+  }
+}
+
+.link-title {
+  width: 100%;
+  height: 100%;
+  &:hover {
+  animation: pulse 1s;
   }
 }
 

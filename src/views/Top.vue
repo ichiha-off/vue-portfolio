@@ -1,7 +1,7 @@
 <template>
   <main v-on:click="changePage" class="top-main">
 
-    <div class="animate__animated animate__infinite animate__bounce animate__slow">
+    <div class="animate__animated animate__infinite animate__bounce animate__slow animate__delay-1s">
       <div class="eng top-content">Hello</div>
     </div>
 
@@ -18,26 +18,29 @@ export default {
   name: 'Top',
   methods: {
     changePage(){
-      gsap.to('.top-main', {
-        backgroundColor: 'white',
-        duration: 2,
-        onComplete: function() {
-          window.location.href = '/home'
-        }
-      }),
-      gsap.to('.top-content', {
-        y: -100,
+      var tl = gsap.timeline({paused: true});
+      tl.to('.top-content',.8, {
+        y: -300,
         opacity: 0,
-        duration: 1,
-      }),
-      gsap.to('.top-content2', {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-      }),
-      gsap.to('.top-content-hide', {
-        className:"+=active animate__animated animate__tada",
       })
+      .to('.top-content2',.8, {
+        y: 300,
+        opacity: 0,
+      })
+      .to('.top-main', 1, {
+        backgroundColor: 'white',
+      }),
+      tl.to('.top-content-hide', 2,{
+        display: 'block',
+        className: '+=animate__animated animate__flipInX top-content-hide eng',
+      },'-=.5')
+      tl.to('.top-content-hide', 2,{
+        className: '+=animate__animated animate__hinge top-content-hide eng',
+        onComplete: function() {
+        window.location.href = '/home'
+        }
+      })
+      tl.play();
     }
   }
 }
@@ -57,20 +60,18 @@ export default {
   .top-content {
     color: #fff;
     font-size: 128px;
+    animation: lightSpeedInLeft 1s;
   }
   .top-content2 {
     color: #fff;
     font-size: 64px;
     margin-top: 100px;
+    animation: lightSpeedInRight 1s;
   }
   .top-content-hide {
     display: none;
+    color: #3F8EFC;
+    font-size: 192px;
   }
-}
-
-.active {
-  display: block;
-  color: #3F8EFC;
-  font-size: 128px;
 }
 </style>
