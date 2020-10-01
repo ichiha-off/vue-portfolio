@@ -64,7 +64,7 @@
 
 .skills-item {
   display: inline-block;
-  margin: 50px 100px 50px 0;
+  margin: 50px 8% 50px 0;
   img {
     width: 70px;
     height: 70px;

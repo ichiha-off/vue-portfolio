@@ -1,42 +1,22 @@
 <template>
+
   <div v-if="urlCheck">
     <Top/>
   </div>
+
   <div  v-else>
+
     <header class="header animate__animated animate__fadeIn">
       <div class="header-inner">
         <a href="/">
           <img class='YK-logo' src="../img/YK_logo.svg" alt="YK_logo">
         </a>
       </div>
+      <HamburgerMenu/>
     </header>
+
     <nav class="side-nav header-links animate__animated animate__flipInX">
-      <ul>
-        <li>
-          <router-link class="header-link" to="/home">
-            <div class="link-title eng">
-              Home
-            </div>
-            <div class="active-link"></div>
-          </router-link>
-        </li>
-        <li>
-          <router-link class="header-link" to="/skills">
-            <div class="link-title eng">
-              Skills
-            </div>
-            <div class="active-link"></div>
-          </router-link>
-        </li>
-        <li>
-          <router-link class="header-link" to="/works">
-            <div class="link-title eng">
-              Works
-            </div>
-            <div class="active-link"></div>
-          </router-link>
-        </li>
-      </ul>
+      <SideNav/>
     </nav>
 
     <transition
@@ -53,18 +33,24 @@
         <div class="eng">created by Yuki Kanayama</div>
       </div>
     </footer>
+
   </div>
 </template>
 
 <script>
+
 import 'normalize.css'
 import Top from './views/Top'
+import HamburgerMenu from './components/HamburgerMenu'
+import SideNav from './components/SideNav'
 
 
 export default {
   name: 'App',
   components: {
-    Top
+    Top,
+    HamburgerMenu,
+    SideNav,
   },
   computed: {
     urlCheck() {
@@ -144,18 +130,6 @@ body {
   margin-left: 20vw;
 }
 
-.side-nav {
-  position: fixed;
-  top: 0;
-  height: 100%;
-  width: 20vw;
-  background-color: #3F8EFC;
-  li {
-    list-style: none;
-    margin: 50px 0;
-  }
-}
-
 .header-links {
   margin: auto;
   margin-right: 0;
@@ -168,28 +142,6 @@ body {
   }
 }
 
-.link-title {
-  width: 100%;
-  height: 100%;
-  &:hover {
-  animation: pulse 1s;
-  }
-}
-
-.router-link-exact-active {
-  .active-link {
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 0;
-    animation: 1s fadeIn;
-  }
-}
-
 .footer {
   height: 100px;
   margin-top: 100px;
@@ -198,6 +150,25 @@ body {
 .footer-inner {
   margin-left: 20vw;
   padding: 0 10%;
+}
+
+@media screen and (max-width: 1023px) {
+
+  .side-nav {
+    display: none;
+  }
+
+  .skills-main, .works-main, .home-main, .footer-inner, .header-inner {
+    margin: 0;
+  }
+
+  .skills-main, .works-main, .home-main {
+    margin-top: 100px;
+  }
+
+  .header {
+    position: fixed;
+  }
 }
 
 </style>
