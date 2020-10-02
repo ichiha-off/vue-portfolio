@@ -134,14 +134,6 @@ export default {
 }
 
 .menu {
-  li {
-    list-style: none;
-    line-height: 1;
-    padding: 50px 10px;
-  }
-}
-
-.menu {
   background-color: rgba(63,142,252,0.8);
   z-index: 100;
   padding: 5% 3%;
@@ -150,15 +142,31 @@ export default {
   height: 100vh;
   top: 0;
   right: 0;
-}
-
-.menu {
+  li {
+    list-style: none;
+    line-height: 1;
+    padding: 50px 10px;
+  }
   a {
     position: relative;
-    color: rgb(66, 66, 66);
     text-decoration: none;
     z-index: 200;
     color: #fff;
+    position: relative;
+    &::after {
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      width: 0%;
+      height: 5px;
+      content: '';
+      background: #fff;
+      transition: all .5s;
+    }
+    &:hover::after {
+      width: 110%;
+    }
   }
 }
 
