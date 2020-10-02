@@ -49,18 +49,42 @@ export default {
   height: 100%;
   width: 20vw;
   background-color: #3F8EFC;
+  ul {
+    margin-top: 68px;
+  }
   li {
     list-style: none;
-    margin: 50px 0;
+    margin-bottom: 100px;
+  }
+}
+
+.header-link {
+  font-size: 20px;
+  width: 50%;
+  margin: 10px 30px;
+  color: #fff;
+  position: relative;
+  display: block;
+  &::after {
+    position: absolute;
+    margin-left: 30px;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    width: 0%;
+    height: 5px;
+    content: '';
+    background: #fff;
+    transition: all .5s;
+  }
+  &:hover::after {
+    width: 50%;
   }
 }
 
 .link-title {
-  width: 100%;
   height: 100%;
-  &:hover {
-  animation: pulse 1s;
-  }
+  margin-left: 30px;
 }
 
 .router-link-exact-active {

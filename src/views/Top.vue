@@ -59,19 +59,19 @@ export default {
   text-align: center;
   .top-content {
     color: #fff;
-    font-size: 128px;
+    font-size: clamp(64px, 20vw ,128px);
     animation: lightSpeedInLeft 1s;
   }
   .top-content2 {
     color: #fff;
-    font-size: 64px;
+    font-size: clamp(32px, 10vw ,64px);
     margin-top: 100px;
     animation: lightSpeedInRight 1s;
   }
   .top-content-hide {
     display: none;
     color: #3F8EFC;
-    font-size: 192px;
+    font-size: clamp(64px, 20vw ,192px);
   }
 }
 </style>

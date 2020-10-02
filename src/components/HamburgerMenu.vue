@@ -9,29 +9,44 @@
     </div>
 
     <!--サイドバー-->
-    <transition name="menu">
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animate__animated animate__bounceInRight"
+      leave-active-class="animate__animated animate__fadeOutRight"
+      mode="out-in"
+    >
       <div class="menu" v-show="ActiveBtn">
 
-        <li>
-          <router-link v-on:click='ActiveBtn=!ActiveBtn' class="eng" to="/home">
+        <li v-on:click='ActiveBtn=!ActiveBtn'>
+          <router-link class="eng" to="/home">
             Home
           </router-link>
         </li>
 
-        <li>
+        <li v-on:click='ActiveBtn=!ActiveBtn'>
           <router-link class="eng" to="/skills">
             Skills
           </router-link>
         </li>
 
-        <li>
-          <router-link v-on:click='ActiveBtn=!ActiveBtn' class="eng" to="/works">
+        <li v-on:click='ActiveBtn=!ActiveBtn'>
+          <router-link class="eng" to="/works">
             Works
           </router-link>
         </li>
 
       </div>
     </transition>
+
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+      mode="out-in"
+    >
+      <div v-show="ActiveBtn" class="back-black"></div>
+    </transition>
+
   </div>
 
 </template>
@@ -71,7 +86,7 @@ export default {
   width: 70px;
   height: 72px;
   cursor: pointer;
-  z-index: 50;
+  z-index: 300;
 }
 
 .hamburger-btn {
@@ -81,7 +96,7 @@ export default {
     left: 20px;
     width: 32px;
     height: 2px;
-    background: #333333;
+    background: #3F8EFC;
     text-align: center;
   }
 }
@@ -101,32 +116,21 @@ export default {
   }
 }
 
-.btn-line01 {
-  transform: translateY(10px) rotate(-45deg);
-  transition: 0.4s ease;
-}
-
-.btn-line02 {
-  transition: 0.4s ease;
-  opacity: 0;
-}
-
-.btn-line03 {
-  transform: translateY(-10px) rotate(45deg);
-  transition: 0.4s ease;
-}
-
-/*サイドバー*/
-.menu-enter-active, .menu-leave-active {
-  transition: opacity 0.4s;
-}
-
-.menu-enter, .menu-leave-to {
-  opacity: 0;
-}
-
-.menu-leave, .menu-enter-to{
-  opacity: 1;
+.hamburger-btn {
+  .btn-line01 {
+    transform: translateY(10px) rotate(-45deg);
+    transition: 0.4s ease;
+    background-color: #fff;
+  }
+  .btn-line02 {
+    transition: 0.4s ease;
+    opacity: 0;
+  }
+  .btn-line03 {
+    transform: translateY(-10px) rotate(45deg);
+    transition: 0.4s ease;
+    background-color: #fff;
+  }
 }
 
 .menu {
@@ -134,13 +138,11 @@ export default {
     list-style: none;
     line-height: 1;
     padding: 50px 10px;
-    z-index: 150;
-    position: relative;
   }
 }
 
 .menu {
-  background-color: rgba(197, 197, 197, 0.8);
+  background-color: rgba(63,142,252,0.8);
   z-index: 100;
   padding: 5% 3%;
   position: fixed;
@@ -156,7 +158,18 @@ export default {
     color: rgb(66, 66, 66);
     text-decoration: none;
     z-index: 200;
+    color: #fff;
   }
+}
+
+.back-black {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(197, 197, 197, 0.8);
+  z-index: 10;
 }
 
 </style>

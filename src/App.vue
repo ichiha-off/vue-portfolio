@@ -1,40 +1,42 @@
 <template>
 
-  <div v-if="urlCheck">
-    <Top/>
-  </div>
+<div v-if="urlCheck">
+  <Top/>
+</div>
 
-  <div  v-else>
+<div  v-else>
 
-    <header class="header animate__animated animate__fadeIn">
-      <div class="header-inner">
-        <a href="/">
-          <img class='YK-logo' src="../img/YK_logo.svg" alt="YK_logo">
-        </a>
-      </div>
-      <HamburgerMenu/>
-    </header>
+  <header class="header animate__animated animate__fadeIn">
+    <div class="header-inner">
+      <a href="/">
+        <img class='YK-logo' src="../img/YK_logo.svg" alt="YK_logo">
+      </a>
+    </div>
+  </header>
 
-    <nav class="side-nav header-links animate__animated animate__flipInX">
-      <SideNav/>
-    </nav>
+  <HamburgerMenu/>
 
-    <transition
-      name="custom-classes-transition"
-      enter-active-class="animate__animated animate__backInRight"
-      leave-active-class="animate__animated animate__backOutRight"
-      mode="out-in"
-      >
-      <router-view class="animate__animated animate__backInRight"/>
-    </transition>
+  <nav class="side-nav header-links animate__animated animate__flipInX">
+    <SideNav/>
+  </nav>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <div class="eng">created by Yuki Kanayama</div>
-      </div>
-    </footer>
+  <transition
+    name="custom-classes-transition"
+    enter-active-class="animate__animated animate__backInRight"
+    leave-active-class="animate__animated animate__backOutRight"
+    mode="out-in"
+    >
+    <router-view class="animate__animated animate__backInRight"/>
+  </transition>
 
-  </div>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="eng">created by Yuki Kanayama</div>
+    </div>
+  </footer>
+
+</div>
+
 </template>
 
 <script>
@@ -100,14 +102,15 @@ body {
 }
 
 .home-content-title, .skills-content-title {
-  font-size: 32px;
   margin-top: 30px;
   font-weight: bold; 
+  font-size: clamp(24px, 2vw, 32px);
 }
 
 .home-content-body, .skills-content-body {
   line-height: 2;
   margin-top: 30px;
+  font-size: clamp(12px, 2vw, 16px);
 }
 
 .space {
@@ -133,13 +136,6 @@ body {
 .header-links {
   margin: auto;
   margin-right: 0;
-  a {
-    padding: 10px 10px 10px 30px;
-    margin: 0 30px;
-    color: #fff;
-    position: relative;
-    display: block;
-  }
 }
 
 .footer {
@@ -155,7 +151,10 @@ body {
 @media screen and (max-width: 1023px) {
 
   .side-nav {
-    display: none;
+    opacity: 0;
+    a {
+      display: none;
+    }
   }
 
   .skills-main, .works-main, .home-main, .footer-inner, .header-inner {
@@ -168,6 +167,7 @@ body {
 
   .header {
     position: fixed;
+    z-index: 1;
   }
 }
 
