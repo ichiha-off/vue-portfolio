@@ -1,25 +1,9 @@
-# portfolio
+# YK Portfolio
 
-## Project setup
+## このサイトについて
 ```
-yarn install
-```
+自己紹介を兼ねたサイトです。
+Vueを用いてアニメーションを導入して、整ったデザインを意識しました。
+今後のメンテナンス（更新）しやすいようにコンポーネントでまとめています。
 
-### Compiles and hot-reloads for development
 ```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# vue-portfolio
