@@ -4,7 +4,7 @@
   <Top/>
 </div>
 
-<div  v-else>
+<div v-else>
 
   <header class="header animate__animated animate__fadeIn">
     <div class="header-inner">
@@ -21,12 +21,13 @@
   </nav>
 
   <transition
+    appear
     name="custom-classes-transition"
     enter-active-class="animate__animated animate__backInRight"
     leave-active-class="animate__animated animate__backOutRight"
     mode="out-in"
     >
-    <router-view class="animate__animated animate__backInRight"/>
+    <router-view class="views"/>
   </transition>
 
   <footer class="footer">
@@ -46,7 +47,6 @@ import Top from './views/Top'
 import HamburgerMenu from './components/HamburgerMenu'
 import SideNav from './components/SideNav'
 
-
 export default {
   name: 'App',
   components: {
@@ -60,6 +60,7 @@ export default {
     }
   },
 };
+
 </script>
 
 <style lang="scss">
@@ -124,7 +125,7 @@ body {
 .header {
   background-color: #fff;
   top: 0;
-  width: 100%;
+  width: 100vw;
   box-shadow: 0 0 1px rgba(0,0,0,0.25);
 }
 
@@ -151,10 +152,7 @@ body {
 @media screen and (max-width: 1023px) {
 
   .side-nav {
-    opacity: 0;
-    a {
-      display: none;
-    }
+    display: none;
   }
 
   .skills-main, .works-main, .home-main, .footer-inner, .header-inner {

@@ -1,14 +1,19 @@
 <template>
-  <main v-on:click="changePage" class="top-main">
 
-    <div class="animate__animated animate__infinite animate__bounce animate__slow animate__delay-1s">
-      <div class="eng top-content">Hello</div>
-    </div>
+<main v-on:click="changePage" ref="background" class="top-main">
 
-    <div class="eng top-content-hide">Welcome</div>
+  <div class="animate__animated animate__infinite animate__bounce animate__slow animate__delay-1s">
+    <div class="eng top-content">Hello</div>
+  </div>
 
-    <div class="eng top-content2">Click on the screen</div>
-  </main>
+  <div class="eng top-content-hide">Welcome</div>
+
+  <div class="eng top-content2">Click on the screen</div>
+
+  <div class="hide-background" ref="background"></div>
+
+</main>
+
 </template>
 
 <script>
@@ -27,8 +32,8 @@ export default {
         y: 300,
         opacity: 0,
       })
-      .to('.top-main', 1, {
-        backgroundColor: 'white',
+      .to('.hide-background', 1,{
+        scaleX: 1,
       }),
       tl.to('.top-content-hide', 2,{
         display: 'block',
@@ -47,7 +52,9 @@ export default {
 </script>
 
 <style lang="scss">
+
 .top-main {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,6 +79,15 @@ export default {
     display: none;
     color: #3F8EFC;
     font-size: clamp(64px, 20vw ,192px);
+    z-index: 1;
+  }
+  .hide-background {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
   }
 }
+
 </style>
