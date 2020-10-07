@@ -1,10 +1,10 @@
 <template>
 
-<div v-if="urlCheck">
+<div class="app-views" v-if="urlCheck">
   <Top/>
 </div>
 
-<div v-else>
+<div class="app-views" v-else>
 
   <header class="header animate__animated animate__fadeIn">
     <div class="header-inner">
@@ -27,7 +27,7 @@
     leave-active-class="animate__animated animate__backOutRight"
     mode="out-in"
     >
-    <router-view class="views"/>
+    <router-view/>
   </transition>
 
   <footer class="footer">
@@ -77,6 +77,10 @@ body {
 
 .eng {
   font-family: 'Josefin Sans', sans-serif;
+}
+
+.app-views {
+  overflow: hidden;
 }
 
 .skills-main, .works-main, .home-main {

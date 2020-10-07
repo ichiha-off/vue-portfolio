@@ -136,16 +136,16 @@ export default {
 .menu {
   background-color: rgba(63,142,252,0.8);
   z-index: 100;
-  padding: 5% 3%;
   position: fixed;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  height: 10%;
+  width: 100vw;
+  height: 20vh;
   top: 0;
-  right: 0;
+  left: 0;
   li {
+    padding: 30px 0;
     list-style: none;
   }
   a {
