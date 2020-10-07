@@ -11,8 +11,8 @@
     <!--サイドバー-->
     <transition
       name="custom-classes-transition"
-      enter-active-class="animate__animated animate__bounceInRight"
-      leave-active-class="animate__animated animate__fadeOutRight"
+      enter-active-class="animate__animated animate__bounceInDown"
+      leave-active-class="animate__animated animate__bounceOutUp"
       mode="out-in"
     >
       <div class="menu" v-show="ActiveBtn">
@@ -138,14 +138,15 @@ export default {
   z-index: 100;
   padding: 5% 3%;
   position: fixed;
-  width: 40vw;
-  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 10%;
   top: 0;
   right: 0;
   li {
     list-style: none;
-    line-height: 1;
-    padding: 50px 10px;
   }
   a {
     position: relative;
