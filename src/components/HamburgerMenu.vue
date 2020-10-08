@@ -141,7 +141,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   width: 100vw;
-  height: 20vh;
+  height: 25vh;
   top: 0;
   left: 0;
   li {
