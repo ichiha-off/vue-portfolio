@@ -1,7 +1,8 @@
 <template>
 
 <main class="home-main">
-  <h1 class="home-headline eng">Yuki Kanayama's first Vue.js</h1>
+  <span class="home-headline-anime eng" data-text="Yuki Kanayama">Yuki Kanayama</span>
+  <h1 class="home-headline eng">'s first Vue.js</h1>
   <div class="space">>>></div>
 
   <div class="home-content">
@@ -47,10 +48,148 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .home-jp {
   font-size: 24px;
+}
+
+.home-headline-anime {
+  font-size: 32px;
+  position: relative;
+  color: transparent;
+  mix-blend-mode: multiply;
+  animation: gMotion 1s linear infinite alternate both;
+  &::before {
+    color: transparent;
+    mix-blend-mode: multiply;
+    content: attr(data-text);
+    left: 0;
+    position: absolute;
+    top: 0;
+    animation: r 1s linear infinite alternate both;
+  }
+  &::after {
+    color: transparent;
+    mix-blend-mode: multiply;
+    content: attr(data-text);
+    left: 0;
+    position: absolute;
+    top: 0;
+    animation: b 1s linear infinite alternate both;
+  }
+}
+
+@keyframes r {
+  0% {
+    text-shadow: 3px 1px 1px #f00;
+  }
+  10% {
+      text-shadow: -6px 1px 1px #f00;
+  }
+  20% {
+      text-shadow: 4px 0px 0px #f00;
+  }
+  30% {
+      text-shadow: -4px 1px 1px #f00;
+  }
+  40% {
+      text-shadow: 0px 0px 1px #f00;
+  }
+  50% {
+      text-shadow: 6px 1px 0px #f00;
+  }
+  60% {
+      text-shadow: 2px -1px 1px #f00;
+  }
+  70% {
+      text-shadow: -3px 0px 1px #f00;
+  }
+  80% {
+      text-shadow: 1px -1px 1px #f00;
+  }
+  90% {
+      text-shadow: -4px 1px 0px #f00;
+  }
+  100% {
+      text-shadow: -1px 1px 0px #f00;
+  }
+}
+
+@keyframes gMotion {
+  0% {
+    text-shadow: -3px 0px 0px #0f0;
+  }
+  10% {
+      text-shadow: -4px -1px 1px #0f0;
+  }
+  20% {
+      text-shadow: -4px 1px 0px #0f0;
+  }
+  30% {
+      text-shadow: 4px -1px 1px #0f0;
+  }
+  40% {
+      text-shadow: 4px 1px 0px #0f0;
+  }
+  50% {
+      text-shadow: -2px -1px 0px #0f0;
+  }
+  60% {
+      text-shadow: -8px -1px 1px #0f0;
+  }
+  70% {
+      text-shadow: 7px -1px 1px #0f0;
+  }
+  80% {
+      text-shadow: 5px -1px 1px #0f0;
+  }
+  90% {
+      text-shadow: 8px 1px 1px #0f0;
+  }
+  100% {
+      text-shadow: -2px 1px 0px #0f0;
+  }
+}
+
+@keyframes b {
+  0% {
+    text-shadow: 1px 0px 0px #00f;
+  }
+  10% {
+      text-shadow: -3px 1px 1px #00f;
+  }
+  20% {
+      text-shadow: 1px -1px 1px #00f;
+  }
+  30% {
+      text-shadow: 8px 1px 1px #00f;
+  }
+  40% {
+      text-shadow: 2px 1px 0px #00f;
+  }
+  50% {
+      text-shadow: 5px -1px 0px #00f;
+  }
+  60% {
+      text-shadow: -1px 0px 0px #00f;
+  }
+  70% {
+      text-shadow: -3px 1px 0px #00f;
+  }
+  80% {
+      text-shadow: 2px 0px 1px #00f;
+  }
+  90% {
+      text-shadow: -6px 0px 1px #00f;
+  }
+  100% {
+      text-shadow: 5px 1px 0px #00f;
+  }
+}
+
+.home-headline {
+  display: inline-block;
 }
 
 </style>
