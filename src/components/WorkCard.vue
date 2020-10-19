@@ -29,7 +29,7 @@ export default {
 
 .work-card {
   display: inline-block;
-  width: max(300px, 25vw);
+  width: max(250px, 25vw);
   margin:5% 3% 10% 3%;
   background: #fff;
   border-radius: 5px;
