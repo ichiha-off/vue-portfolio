@@ -33,6 +33,13 @@ export default {
           image: require('../../img/Daddy-s-break.png'), 
           url: 'http://18.177.170.11/'
         },
+        {
+          id: 2,
+          title: 'Cocoda! My作品集',
+          body: 'Cocoda!様でDaily UIというシリーズでデザインを作成しています。',
+          image: require('../../img/cocoda-image.png'),
+          url: 'https://cocoda-design.com/ichiha' 
+        }
       ]
     }
   }
