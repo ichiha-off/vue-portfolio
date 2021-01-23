@@ -39,6 +39,13 @@ export default {
           body: 'Cocoda!様でDaily UIというシリーズでデザインを作成しています。',
           image: require('../../img/cocoda-image.png'),
           url: 'https://cocoda-design.com/ichiha' 
+        },
+        {
+          id: 3,
+          title: 'わかやま幼稚園（架空）',
+          body: '私が父親なので、母親ではなく父親目線でこんな幼稚園のサイトがあればいいな思い作成しました。',
+          image: require('../../img/wakayama.png'),
+          url: 'https://wakayama-kindergarten.web.app/'
         }
       ]
     }
